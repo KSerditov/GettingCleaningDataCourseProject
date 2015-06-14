@@ -50,4 +50,7 @@ colnames(mergedData) <- resultNames
 # Step 5. From the data set in step 4, creates a second, 
 # independent tidy data set with the average of each variable 
 # for each activity and each subject.
-# TBD
+tidySet <- aggregate(mergedData[-c(1,2)], by=mergedData[,1:2], FUN="mean")
+
+# Write result as .txt file for submission
+write.table(tidySet, file="./step_5_tidy_set.txt", row.name=FALSE)
